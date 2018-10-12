@@ -1,0 +1,19 @@
+--parte 1 
+create  TABLESPACE mid_term
+datafile 'mid_term1' size 60m;
+
+CREATE USER yquintero IDENTIFIED BY yquintero
+DEFAULT TABLESPACE mid_term 
+QUOTA UNLIMITED ON mid_term;
+GRANT CONNECT TO yquintero;
+
+create ROLE MINI_DBA;
+grant create SEQUENCE to MINI_DBA;
+grant create TABLE to MINI_DBA;
+
+create ROLE STUDENT;
+grant create SESSION to STUDENT;
+
+GRANT STUDENT to MINI_DBA;
+
+grant STUDENT to yquintero;
